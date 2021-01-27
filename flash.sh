@@ -13,6 +13,7 @@ fi
 
 echo "[*] This script will install the custom firmware and anne-pro shine firmware."
 echo "Press enter to start the process, you will have 10 seconds to put the device in APU mode"
+echo "AnnePro2 DFU mode is enabled by removing the USB cable and inserting the cable while the ESC key is pressed"
 
 read a
 sleep 10
