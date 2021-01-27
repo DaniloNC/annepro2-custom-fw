@@ -137,8 +137,34 @@ void keyboard_post_init_user(void)
   annepro2LedEnable();
 }
 
-layer_state_t default_layer_state_set_user(layer_state_t layer)
+
+// TODO: debug why default_layer_state_set_user is not working
+// for some reason the code below is not working
+
+
+// layer_state_t default_layer_state_set_user(layer_state_t layer)
+// {
+//   switch (get_highest_layer(layer))
+//   {
+//   case _MAC_LAYER:
+//     annepro2LedSetForegroundColor(0xFF, 0x00, 0x00);
+//     break;
+
+//   case _BASE_LAYER:
+//     annepro2LedSetForegroundColor(0x00, 0x00, 0xFF);
+//     break;
+
+//   default:
+//     // annepro2LedSetForegroundColor(0xFF, 0x69, 0xB4);
+//     break;
+//   }
+
+//   return layer;
+// }
+
+layer_state_t layer_state_set_user(layer_state_t layer)
 {
+
   switch (get_highest_layer(layer))
   {
   case _MAC_LAYER:
@@ -148,20 +174,6 @@ layer_state_t default_layer_state_set_user(layer_state_t layer)
   case _BASE_LAYER:
     annepro2LedSetForegroundColor(0x00, 0x00, 0xFF);
     break;
-
-  default:
-    // annepro2LedSetForegroundColor(0xFF, 0x69, 0xB4);
-    break;
-  }
-
-  return layer;
-}
-
-layer_state_t layer_state_set_user(layer_state_t layer)
-{
-
-  switch (get_highest_layer(layer))
-  {
   case _FN2_LAYER:
     annepro2LedSetForegroundColor(0xFF, 0xFF, 0x00);
     break;
@@ -171,7 +183,7 @@ layer_state_t layer_state_set_user(layer_state_t layer)
     break;
 
   default:
-    // annepro2LedSetForegroundColor(0xFF, 0x69, 0xB4);
+    annepro2LedSetForegroundColor(0xFF, 0x69, 0xB4);
     break;
   }
 
