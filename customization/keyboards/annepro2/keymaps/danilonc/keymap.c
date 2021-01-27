@@ -10,7 +10,7 @@ enum anne_pro_layers
   _FN2_LAYER,
 };
 
-uint8_t  change_color = 0;
+uint8_t change_color = 0;
 uint8_t led_r = 0x00;
 uint8_t led_g = 0x00;
 uint8_t led_b = 0xFF;
@@ -141,7 +141,7 @@ void keyboard_post_init_user(void)
   change_color = 1;
 
   annepro2LedEnable();
-  annepro2LedSetForegroundColor(led_r,led_g,led_b);
+  annepro2LedSetForegroundColor(led_r, led_g, led_b);
 }
 
 // TODO: debug why default_layer_state_set_user is not working
@@ -153,13 +153,12 @@ void set_default_layer_color(layer_state_t layer)
   {
     switch (get_highest_layer(layer))
     {
-    
+
     case _MAC_LAYER:
       led_r = 0xFF;
       led_g = 0x00;
       led_b = 0x00;
 
-      annepro2LedSetForegroundColor(0xFF, 0x00, 0x00);
       break;
 
     case _BASE_LAYER:
@@ -167,12 +166,6 @@ void set_default_layer_color(layer_state_t layer)
       led_g = 0x00;
       led_b = 0xFF;
 
-      annepro2LedSetForegroundColor(0x00, 0x00, 0xFF);
-      break;
-
-    default:
-      // annepro2LedSetForegroundColor(0xFF, 0x69, 0xB4);
-      annepro2LedSetForegroundColor(led_r,led_g,led_b);
       break;
     }
   }
@@ -199,7 +192,7 @@ layer_state_t layer_state_set_user(layer_state_t layer)
     break;
 
   default:
-    annepro2LedSetForegroundColor(led_r,led_g,led_b);
+    annepro2LedSetForegroundColor(led_r, led_g, led_b);
     break;
   }
 
