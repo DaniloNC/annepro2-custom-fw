@@ -203,11 +203,13 @@ bool led_update_user(led_t leds)
 {
   if (leds.caps_lock)
   {
-    annepro2LedSetMask(CAPS_LOCATION);
+    // todo, replace LedSetMask and LedClearMask with newer functions
+    // https://cs.github.com/OpenAnnePro/qmk_firmware/blob/6ca3d5aacff7c75f636b61d01a00d7f29a660353/keyboards/annepro2/qmk_ap2_led.c?q=annepro2LedForwardKeypress
+    //annepro2LedSetMask(CAPS_LOCATION);
   }
   else
   {
-    annepro2LedClearMask(CAPS_LOCATION);
+    //annepro2LedClearMask(CAPS_LOCATION);
   }
   return true;
 }
